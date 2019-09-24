@@ -1,0 +1,96 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+MERGED from [:shared_preferences] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.4.3/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+4/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.3.0/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+	package
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:2:5-62
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:1-42:12
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:8:22-64
+uses-permission#com.symbol.emdk.permission.EMDK
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:9:5-70
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:9:22-68
+application
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:16:5-41:19
+	android:label
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:18:9-43
+	android:icon
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:19:9-43
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:17:9-57
+uses-library#com.symbol.emdk
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:20:9-55
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:20:23-53
+activity#it.soluzione1.flutterzebraemdk.flutterzebraemdk.MainActivity
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:22:9-40:20
+	android:launchMode
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:24:13-43
+	android:hardwareAccelerated
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:27:13-47
+	android:windowSoftInputMode
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:28:13-55
+	android:configChanges
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:26:13-116
+	android:theme
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:25:13-47
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:23:13-41
+meta-data#io.flutter.app.android.SplashScreenUntilFirstFrame
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:33:13-35:40
+	android:value
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:35:17-37
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:34:17-82
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:36:13-39:29
+action#android.intent.action.MAIN
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:37:17-68
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:37:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml:38:27-74
+uses-sdk
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+MERGED from [:shared_preferences] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.4.3/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.4.3/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+4/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+4/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.3.0/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] /home/wachirapan/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.3.0/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/wachirapan/Downloads/flutterZebraEmdk-master/android/app/src/main/AndroidManifest.xml

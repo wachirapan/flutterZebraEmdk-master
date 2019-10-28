@@ -46,9 +46,9 @@ class State_CheckListReceipts extends State<StateFull_CheckListReceipts>{
   getstock_moveodoo()async{
     prefs = await SharedPreferences.getInstance();
     url = ModelURL_TEST.setData("${prefs.getString("url")}", "${prefs.getString("userlogin")}", "${prefs.getString("password")}", "${prefs.getString("database")}");
-    print("*********${url.setURL}**********${url.username}************${url.password}********${url.database}");
+
     var client = new OdooClient("${url.setURL}");
-    await client.connect().then((OdooVersion version) async {
+
       await client.authenticate("${url.username}", "${url.password}", "${url.database}").then((AuthenticateCallback auth) async {
         if(auth.isSuccess) {
           final domain = [["picking_id", "=", int.parse("${prefs.getString("picking_id")}")]];
@@ -67,7 +67,7 @@ class State_CheckListReceipts extends State<StateFull_CheckListReceipts>{
           // login fail
         }
       });
-    });
+
   }
   check_querymodeldb(String id, String name, String picking_id, String ordered_qty, String product_qty, String product_uom_qty) async
   {
@@ -165,7 +165,7 @@ class State_CheckListReceipts extends State<StateFull_CheckListReceipts>{
     final receiptsdata = await querydata.check_ordersendserver_receipts('${prefs.getString("picking_id")}');
     if(receiptsdata.length > 0){
       var client = new OdooClient(url.setURL);
-      await client.connect().then((OdooVersion version) async {
+
         await client.authenticate("${url.username}", "${url.password}", "${url.database}").then((AuthenticateCallback auth) async {
           if(auth.isSuccess) {
             receiptsdata.forEach((item) async {
@@ -192,7 +192,7 @@ class State_CheckListReceipts extends State<StateFull_CheckListReceipts>{
             // login fail
           }
         });
-      });
+
     }
   }
   ListStockMove(){

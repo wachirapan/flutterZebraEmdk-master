@@ -13,7 +13,7 @@ class SettingMain extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: "",
+      title: "LOGIN",
       home: StateFull_SettingMain(),
     );
   }
@@ -36,7 +36,9 @@ class _SettingMain extends State<StateFull_SettingMain>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: <Widget>[],
+      ),
       body: ModalProgressHUD(child:  Container(
         margin: EdgeInsets.only(left: 10.0, right: 10.0),
         child: ListView(
@@ -65,13 +67,22 @@ class _SettingMain extends State<StateFull_SettingMain>{
                   labelText: "Password" , hintText: "Password"
               ),
             ),
-            RaisedButton(
-              onPressed: (){
-                seve_server();
-                _saving = true ;
-              },
-              child: Text("Login"),
+            Container(
+              margin: EdgeInsets.only(top: 15.0),
+              child:  ButtonTheme(
+                  height: 40.0,
+                child: RaisedButton(
+                  onPressed: (){
+                    seve_server();
+                    _saving = true ;
+                  },
+                  child: Text("Login"),
+                  color: Colors.blue,
+                ),
+              )
+
             )
+
           ],
         ),
       ),inAsyncCall: _saving,)

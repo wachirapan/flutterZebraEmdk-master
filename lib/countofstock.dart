@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (rows.length == 0) {
       final referend_rows = await querydata.qcheck_product_referend(barcode);
       if (referend_rows.length == 0) {
-        print("ไม่มีข้อมูล+++++++++++${barcode}");
+//        print("ไม่มีข้อมูล+++++++++++${barcode}");
 //        connect_odoo_checknewlist(barcode);
       } else {
         referend_rows.forEach((item) {
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       rows.forEach((item) {
         final count = item['product_qty'] + 1;
-        print("******${count}*******");
+//        print("******${count}*******");
         _updatecount_data("${item['line_id']}", "${count}");
       });
       Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
     prefs = await SharedPreferences.getInstance();
     url =  ModelURL_TEST.setData("${prefs.getString("url")}", "${prefs.getString("userlogin")}", "${prefs.getString("password")}", "${prefs.getString("database")}");
     var client = OdooClient("${url.setURL}");
-    await client.connect().then((version) {
+
       client
           .authenticate("${url.username}", "${url.password}", "${url.database}")
           .then((AuthenticateCallback auth) {
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // login fail
         }
       });
-    });
+
   }
 
   _update_row_productbarcode(String id, String barcode, String ref) async {
@@ -168,11 +168,12 @@ class _MyHomePageState extends State<MyHomePage> {
       DatabaseHelper.product_qty: int.parse(count),
       DatabaseHelper.create_dateline: formattedDate,
     };
-    final rowaffected = await updatedata.update_countdata(row);
+     await updatedata.update_countdata(row);
   }
 
   _query() async {
     final allRows = await querydata.query_orderline();
+//    print("++++++++++++++++${allRows.length}********************************");
     allRows.forEach((row) => mlist.add(InventoryLine(
         "${row['line_id']}",
         "${row['product_id']}",
@@ -184,13 +185,13 @@ class _MyHomePageState extends State<MyHomePage> {
         "${row['create_dateline']}")));
     setState(() {
       mlist.forEach((item){
-//        print("**************${item.product_code}*************${item.barcode}");
+        //print("**************${item.product_code}*************${item.barcode}");
       });
     });
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefstock_id = int.parse(prefs.getString("pefStock_id"));
     prefname = prefs.getString("pefStock_name");
-    print("++++++++++++++++++++${prefstock_id}-----------${prefname}");
+//    print("++++++++++++++++++++${prefstock_id}-----------${prefname}");
   }
 
 
@@ -322,7 +323,7 @@ class _MyHomePageState extends State<MyHomePage> {
     prefs = await SharedPreferences.getInstance();
     url =  ModelURL_TEST.setData("${prefs.getString("url")}", "${prefs.getString("userlogin")}", "${prefs.getString("password")}", "${prefs.getString("database")}");
     var client = OdooClient("${url.setURL}");
-    await client.connect().then((version) async {
+
       await client
           .authenticate("${url.username}", "${url.password}", "${url.database}")
           .then((AuthenticateCallback auth) async {
@@ -383,13 +384,13 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         }
       });
-    });
+
     setState(() {
       _saving = false;
     });
   }
 
-  void _checkdb(
+  _checkdb(
       String line_id,
       String product_id,
       String name_product,
@@ -399,7 +400,7 @@ class _MyHomePageState extends State<MyHomePage> {
       String product_qty) async {
     final rows = await querydata.qcheckordreline(line_id);
     if (rows.length > 0) {
-      print("มีข้อมูลแล้ว");
+//      print("มีข้อมูลแล้ว");
     } else {
       _insert(line_id, product_id, name_product, barcode, product_code,
           theoretical_qty, product_qty);
@@ -428,7 +429,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DatabaseHelper.create_dateline: formattedDate,
     };
     final id = await insertdata.insert_proudctdetail(row);
-    print('inserted row id: $id');
+//    print('inserted row id: $id');
 
   }
 }

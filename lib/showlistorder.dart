@@ -8,7 +8,7 @@ import 'dataModel/stock_picking.dart';
 import 'checklistreceipts.dart';
 import 'dataModel/model_url.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'dashboard/search_all/file_search_all.dart';
 void main ()=> runApp(ShowListOrder());
 class ShowListOrder extends StatelessWidget{
   @override
@@ -46,12 +46,12 @@ class State_ShowListOrder extends State<StateFull_ShowListOrder>{
   connectData () async{
     prefs = await SharedPreferences.getInstance();
     var client = new OdooClient("${url.setURL}");
-    await client.connect().then((OdooVersion version) async {
+
       await client.authenticate("${url.username}", "${url.password}", "${url.database}").then((AuthenticateCallback auth) async {
         if(auth.isSuccess) {
-          final domain = [["picking_type_id", "=", int.parse("${widget.mlist.id}")]];
+          final domain = [["picking_type_id", "=", int.parse("${widget.mlist.id}")],["state" , "like" , "assigned"]];
           final fields = ["id", "name", "state","picking_type_id","location_id","location_dest_id","origin"];
-          await client.searchRead("stock.picking", domain, fields, limit: 10, offset: 0, order: "create_date").then((OdooResponse result) async {
+          await client.searchRead("stock.picking", domain, fields, limit: 999, offset: 0, order: "create_date").then((OdooResponse result) async {
             if (!result.hasError()) {
               final data = result.getResult();
               for(var item in data['records']){
@@ -71,13 +71,22 @@ class State_ShowListOrder extends State<StateFull_ShowListOrder>{
           // login fail
         }
       });
-    });
+
   }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> StateFull_FileSearchAll()));
+            },
+            icon: Icon(Icons.search),
+          )
+        ],
+      ),
       body: lists.length == 0 ? Center(child: CircularProgressIndicator(),): showdataList(),
     );
   }

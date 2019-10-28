@@ -11,15 +11,19 @@ class QueryData{
     Database db = await dbHelper.database ;
     return await db.query("stock_location",where: 'stock_location_id = ?',whereArgs: [id]);
   }
+  Future<List<Map<String, dynamic>>> queryAllRowsCount() async{
+    Database db = await dbHelper.database ;
+    return await db.query('stock_inventory');
+  }
   Future<List<Map<String, dynamic>>> queryAllRows(String data_id) async {
     Database db = await dbHelper.database;
-    return await db.query('stock_inventory',where: 'columnId = ?', whereArgs: [data_id]);
+    return await db.query('stock_inventory', where: 'columnId = ? ', whereArgs: [data_id]);
   }
 
   Future<List<Map<String, dynamic>>> query_orderline() async {
     Database db = await dbHelper.database;
     return await db.rawQuery(
-        'select * from inventory_line order by create_dateline DESC');
+        'select * from inventory_line group by line_id order by create_dateline DESC ');
   }
 
   Future<List<Map<String, dynamic>>> query_product_id(String product_id) async {
@@ -62,7 +66,7 @@ class QueryData{
   }
   Future<List<Map<String, dynamic>>> check_datastockmove(String move_id)async{
     Database db = await dbHelper.database ;
-    return await db.rawQuery('select * from stock_move_line where stock_move_line_move_id = ${move_id}');
+    return await db.rawQuery('select * from stock_move_line where stock_move_line_move_id = ${move_id} group by stock_move_line_move_id ');
   }
   Future<List<Map<String, dynamic>>> check_stockmoveline_doneqty(String move_id) async{
     Database db = await dbHelper.database ;

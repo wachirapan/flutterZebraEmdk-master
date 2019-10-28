@@ -85,7 +85,7 @@ class State_ListData_Add extends State<StateFull_ListData_Add> {
     url =  ModelURL_TEST.setData("${pref.getString("url")}", "${pref.getString("userlogin")}", "${pref.getString("password")}", "${pref.getString("database")}");
     print('${pref.getString("move_id")}');
     var client = new OdooClient("${url.setURL}");
-    await client.connect().then((OdooVersion version) async {
+
       await client
           .authenticate("${url.username}", "${url.password}", "${url.database}")
           .then((AuthenticateCallback auth) async {
@@ -137,7 +137,7 @@ class State_ListData_Add extends State<StateFull_ListData_Add> {
           // login fail
         }
       });
-    });
+
   }
 
   insert_stockmoveline(

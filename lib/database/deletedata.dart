@@ -6,11 +6,14 @@ class DeleteData{
 
   Future<int> deletestock() async {
     Database db = await dbHelper.database;
+    print("++++++++++1+++++++++++");
     return await db.rawDelete("DELETE FROM inventory_line");
+
   }
 
   Future<int> deletestockline() async {
     Database db = await dbHelper.database;
+    print("+++++++++++2++++++++++");
     return await db.rawDelete("DELETE FROM stock_inventory");
   }
   Future<int> deletedata_stockmove(int id) async

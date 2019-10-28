@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:odoo_api/odoo_api.dart';
 import 'package:odoo_api/odoo_api_connector.dart';
 import 'package:odoo_api/odoo_user_response.dart';
-import 'package:odoo_api/odoo_version.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dataModel/stock_picking_type.dart';
 import 'showlistorder.dart';
 import 'maincountstock.dart';
-
+import 'main.dart';
 import 'database/database_helper.dart';
 import 'database/insertdata.dart';
 import 'database/updatedata.dart';
@@ -51,8 +50,6 @@ class State_MyHomePage extends State<StateFull_MyHomePage>{
   void initState() {
     // TODO: implement initState
     super.initState();
-
-
     set_connect_server();
 
   }
@@ -66,9 +63,8 @@ class State_MyHomePage extends State<StateFull_MyHomePage>{
   }
   connect_odoo_dashboards() async{
     print("*****************${test.setURL}***********${test.database}***********${test.username}***********${test.password}**");
-    var client = new OdooClient("${test.setURL}");
-    await client.connect().then((OdooVersion version) async {
-      await client.authenticate("${test.username}", "${test.password}", "${test.database}").then((AuthenticateCallback auth) async {
+    var client = new OdooClient("${prefs.getString("url")}");
+      await client.authenticate("${prefs.getString("userlogin")}", "${prefs.getString("password")}", "${prefs.getString("database")}").then((AuthenticateCallback auth) async {
         if(auth.isSuccess) {
           final domain = [["active", "=", 't']];
           final fields = ["id", "name", "code","active"];
@@ -96,15 +92,34 @@ class State_MyHomePage extends State<StateFull_MyHomePage>{
             }
           });
         } else {
-          // login fail
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              // return object of type Dialog
+              return AlertDialog(
+                title: new Text("ไม่สามารถเข้าสู่ระบบได้ ?"),
+                content: new Text("ไม่มีข้อมูลนี้ในระบบ"),
+                actions: <Widget>[
+                  
+                  new FlatButton(
+                    child: new Text("ปิด"),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SettingMain()));
+                     
+                    },
+                  ),
+                ],
+              );
+            },
+          );
         }
       });
-    });
+
 
   }
   getstock_location()async{
     var client = new OdooClient("${test.setURL}");
-    await client.connect().then((OdooVersion version) async {
+
       await client.authenticate("${test.username}", "${test.password}", "${test.database}").then((AuthenticateCallback auth) async {
         if(auth.isSuccess) {
           final domain = [["parent_left", "!=", '']];
@@ -128,7 +143,7 @@ class State_MyHomePage extends State<StateFull_MyHomePage>{
           // login fail
         }
       });
-    });
+
 
   }
   checkstock_location(String id, String left, String right, String name, String complete_name, String fk_id)async{
@@ -218,6 +233,7 @@ class State_MyHomePage extends State<StateFull_MyHomePage>{
               trailing: Text("${mlist[index].countorder}"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> StateFull_ShowListOrder(mlist: mlist[index],)));
+                prefs.setString("picking_type_id", mlist[index].id);
               },
             ),
           );

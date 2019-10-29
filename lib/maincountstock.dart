@@ -3,7 +3,6 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:odoo_api/odoo_api.dart';
 import 'package:odoo_api/odoo_api_connector.dart';
 import 'package:odoo_api/odoo_user_response.dart';
-import 'package:odoo_api/odoo_version.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dataModel/stock_inventory.dart';
 import 'show_connectdata.dart';
